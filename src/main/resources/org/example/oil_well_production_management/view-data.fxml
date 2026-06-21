@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.oil_well_production_management.ViewDataController"
+            prefHeight="400.0"
+            prefWidth="600.0">
+
+<children>
+
+    <VBox spacing="10" layoutX="50" layoutY="30">
+
+        <Label text="Production Records"/>
+
+        <TableView fx:id="tableView" prefHeight="250" prefWidth="500">
+
+            <columns>
+
+                <TableColumn fx:id="oilColumn" text="Oil Rate"/>
+                <TableColumn fx:id="gasColumn" text="Gas Rate"/>
+                <TableColumn fx:id="waterColumn" text="Water Cut"/>
+
+            </columns>
+
+        </TableView>
+
+        <Button text="Back" onAction="#handleBack"/>
+
+    </VBox>
+
+</children>
+</AnchorPane>
