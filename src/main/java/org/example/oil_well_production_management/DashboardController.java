@@ -43,14 +43,18 @@ public class DashboardController {
 
     @FXML
     private void handleSave() {
-        double oil = Double.parseDouble(oilField.getText().trim().replace("%", ""));
-        double gas = Double.parseDouble(gasField.getText().trim().replace("%", ""));
-        double water = Double.parseDouble(waterField.getText().trim().replace("%", ""));
+        try {
+            double oil = Double.parseDouble(oilField.getText().trim());
+            double gas = Double.parseDouble(gasField.getText().trim());
+            double water = Double.parseDouble(waterField.getText().trim().replace("%", ""));
 
-        records.add(new ProductionRecord(oil, gas, water));
+            records.add(new ProductionRecord(oil, gas, water));
 
-        statusLabel.setText("Saved successfully");
+            statusLabel.setText("Saved successfully");
 
+        } catch (NumberFormatException e) {
+            statusLabel.setText("Enter valid numbers");
+        }
 
 
     }

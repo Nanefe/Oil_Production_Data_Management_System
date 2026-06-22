@@ -15,11 +15,11 @@
 
             <Label text="Production Data Entry"/>
 
-            <TextField fx:id="oilField" promptText="Oil Production Rate"/>
+            <TextField fx:id="oilField" promptText="Oil Production Rate (BOPD)"/>
 
-            <TextField fx:id="gasField" promptText="Gas Production Rate"/>
+            <TextField fx:id="gasField" promptText="Gas Production Rate (MSCFD)"/>
 
-            <TextField fx:id="waterField" promptText="Water Cut Percentage"/>
+            <TextField fx:id="waterField" promptText="Water Cut (%)"/>
 
             <Button text="Save" onAction="#handleSave"/>
 
