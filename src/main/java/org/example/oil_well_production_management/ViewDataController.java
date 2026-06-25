@@ -1,13 +1,13 @@
 package org.example.oil_well_production_management;
 
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 
 public class ViewDataController {
 
@@ -23,30 +23,42 @@ public class ViewDataController {
     @FXML
     private TableColumn<ProductionRecord, Double> waterColumn;
 
+
     @FXML
     public void initialize() {
 
-        oilColumn.setCellValueFactory(new PropertyValueFactory<>("oilRate"));
-        gasColumn.setCellValueFactory(new PropertyValueFactory<>("gasRate"));
-        waterColumn.setCellValueFactory(new PropertyValueFactory<>("waterCut"));
+        oilColumn.setCellValueFactory(
+                new PropertyValueFactory<>("oilRate"));
 
-        tableView.setItems(DashboardController.records);
+        gasColumn.setCellValueFactory(
+                new PropertyValueFactory<>("gasRate"));
+
+        waterColumn.setCellValueFactory(
+                new PropertyValueFactory<>("waterCut"));
+
+        tableView.setItems(
+                javafx.collections.FXCollections.observableArrayList(
+                        Database.getAllRecords()
+                )
+        );
     }
 
     @FXML
     private void handleBack() {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("dashboard.fxml")
-            );
 
-            Scene scene = new Scene(loader.load());
+        try {
+
+            Parent root = FXMLLoader.load(
+                    getClass().getResource(
+                            "/org/example/oil_well_production_management/dashboard.fxml"));
 
             Stage stage = (Stage) tableView.getScene().getWindow();
-            stage.setScene(scene);
+
+            stage.setScene(new Scene(root));
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 }

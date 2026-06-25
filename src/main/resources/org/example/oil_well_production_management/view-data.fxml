@@ -1,35 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-        <?import javafx.scene.control.*?>
-        <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.oil_well_production_management.ViewDataController"
-            prefHeight="400.0"
-            prefWidth="600.0">
 
-<children>
-
-    <VBox spacing="10" layoutX="50" layoutY="30">
-
-        <Label text="Production Records"/>
-
-        <TableView fx:id="tableView" prefHeight="250" prefWidth="500">
-
-            <columns>
-
-                <TableColumn fx:id="oilColumn" text="Oil Rate"/>
-                <TableColumn fx:id="gasColumn" text="Gas Rate"/>
-                <TableColumn fx:id="waterColumn" text="Water Cut"/>
-
-            </columns>
-
-        </TableView>
-
-        <Button text="Back" onAction="#handleBack"/>
-
-    </VBox>
-
-</children>
-</AnchorPane>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.oil_well_production_management.ViewDataController">
+   <children>
+      <Label text="Production records">
+         <padding>
+            <Insets right="9.0" />
+         </padding>
+      </Label>
+      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="oilColumn" prefWidth="75.0" text="Oil Rate" />
+          <TableColumn fx:id="gasColumn" prefWidth="75.0" text="Gas Rate" />
+            <TableColumn fx:id="waterColumn" prefWidth="75.0" text="Water Cut" />
+        </columns>
+      </TableView>
+      <Button mnemonicParsing="false" onAction="#handleBack" text="Back" />
+   </children>
+</VBox>
